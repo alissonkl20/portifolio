@@ -159,7 +159,7 @@ function App() {
           LinkedIn
         </a>
         <a
-          href="https://www.instagram.com/alisson_almeida_09/"
+          href="https://www.instagram.com/aliss_onspace/"
           target="_blank"
           rel="noopener noreferrer"
           className="flex items-center gap-2 text-pink-600 dark:text-pink-400 hover:text-pink-800 dark:hover:text-pink-300 transition-colors text-lg"
