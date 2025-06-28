@@ -36,7 +36,7 @@ function App() {
             loop
             muted
             playsInline
-            src='./src/assets/skye.mp4'
+            src='./public/assets/skye.mp4'
             className="w-full h-full object-cover custom-video-style max-h-screen"
             preload="auto"
             poster="/skye-poster.jpg"
