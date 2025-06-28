@@ -35,7 +35,7 @@ function Card() {
   return (
     <section className="min-h-screen w-full bg-white dark:bg-neutral-900 transition-colors duration-300">
       <div className="flex flex-col justify-center items-center min-h-screen py-16">
-        <ul className="grid grid-cols- md:grid-cols-4 gap-4 w-full">
+        <ul className="grid grid-cols- md:grid-cols-4 gap-6 w-full m-auto px-6">
           {cards.map((card) => (
             <li key={card.id}>
               <div className="mx-auto shadow-xl bg-cover bg-center min-h-[28rem] h-full relative border-8 border-black dark:border-neutral-800 transform duration-500 hover:-translate-y-6 group rounded-xl"
