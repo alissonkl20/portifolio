@@ -1,5 +1,6 @@
 import  { useState } from 'react';
-import { ExternalLink, Code2, Briefcase, User, GraduationCap, Moon, Sun } from 'lucide-react';
+import { Code2, Briefcase, User, GraduationCap, Moon, Sun } from 'lucide-react';
+import Card from './components/Card';
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -118,21 +119,9 @@ function App() {
       <Code2 className="text-blue-600" size={28} />
       <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : ''}`}>Projetos</h2>
     </div>
-    <div className="grid md:grid-cols-2 gap-8">
-      <div className={`p-6 rounded-lg shadow-md ${sectionClasses} hover:shadow-lg transition-shadow`}>
-        <h3 className="text-xl font-semibold mb-2">Email</h3>
-        <p className={`mb-4 ${textSecondaryClasses}`}>
-          Contato profissional.
-        </p>
-        <a
-          href="mailto:almeidadeoliveiraalisson04@gmail.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className={`text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 inline-flex items-center gap-1 transition-colors`}
-        >
-          almeidadeoliveiraalisson04@gmail.com <ExternalLink size={16} />
-        </a>
-      </div>
+    <div className="grid mx:grid-cols-2 gap-8">
+      <Card 
+      />
     </div>
   </div>
 </section>
