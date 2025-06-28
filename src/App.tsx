@@ -29,26 +29,27 @@ function App() {
         {darkMode ? <Sun className="text-yellow-400" /> : <Moon className="text-gray-700" />}
       </button>
 
-      <header className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#1C1C1C] to-purple-900 text-white">
-        <div className="absolute inset-0 w-full h-full pointer-events-none">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            src='./public/assets/skye.mp4'
-            className="w-full h-full object-cover custom-video-style max-h-screen"
-            preload="auto"
-          />
-        </div>
-        <div className="relative z-10 text-center px-4">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Alisson de Almeida de Oliveira</h1>
-          <p className="text-lg md:text-3xl text-gray-200 mb-8">Desenvolvedor Full-Stack</p>
-          <div className="flex justify-center gap-4 flex-wrap">
-            {/* Espaço reservado para futuros botões ou links */}
-          </div>
-        </div>
-      </header>
+      <header className="relative h-screen flex items-center justify-center bg-gradient-to-br from-[#1C1C1C] to-purple-900 text-white overflow-hidden">
+  <div className="absolute inset-0 w-full h-full pointer-events-none">
+    <video
+      autoPlay
+      loop
+      muted
+      playsInline
+      src='/assets/skye.mp4'
+      className="w-full h-full object-cover opacity-70"
+      preload="auto"
+    />
+  </div>
+  
+  <div className="relative z-10 text-center px-4">
+    <h1 className="text-4xl md:text-5xl font-bold mb-4">Alisson de Almeida de Oliveira</h1>
+    <p className="text-lg md:text-3xl text-gray-200 mb-8">Desenvolvedor Full-Stack</p>
+    <div className="flex justify-center gap-4 flex-wrap">
+      {/* Seus botões ou links aqui */}
+    </div>
+  </div>
+</header>
 
       <section id="sobre" className={`py-20 px-4 ${sectionClasses}`}>
         <div className="max-w-4xl mx-auto">
