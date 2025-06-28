@@ -39,7 +39,6 @@ function App() {
             src='./public/assets/skye.mp4'
             className="w-full h-full object-cover custom-video-style max-h-screen"
             preload="auto"
-            poster="/skye-poster.jpg"
           />
         </div>
         <div className="relative z-10 text-center px-4">
