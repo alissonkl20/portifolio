@@ -91,7 +91,7 @@ function App() {
             </div>
             
             <div className="border-l-4 border-blue-600 pl-4">
-              <h3 className="text-xl font-semibold">Cardápio web para uma padaria Full-Stack</h3>
+              <h3 className="text-xl font-semibold">Desenvolvedor Full-Stack</h3>
               <p className={textSecondaryClasses}>2025</p>
               <p className={`mt-2 ${textSecondaryClasses}`}>
                 Criei um cardápio web para uma padaria, permitindo que os clientes visualizassem os produtos disponíveis e realizassem pedidos online.
@@ -101,7 +101,7 @@ function App() {
               </p>
             </div>
             <div className="border-l-4 border-blue-600 pl-4">
-              <h3 className="text-xl font-semibold">Desenvolvedor Front-End Freelancer</h3>
+              <h3 className="text-xl font-semibold">Desenvolvedor Back-end Freelancer</h3>
               <p className={textSecondaryClasses}>2025</p>
               <p className={`mt-2 ${textSecondaryClasses}`}>
                 Atuei como como desenvolvedor freelancer, para bot do discord, onde aprimorei funcionalidades de moderação e integração com APIs externas.
