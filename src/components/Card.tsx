@@ -17,17 +17,19 @@ function Card() {
   const cards: CardItem[] = [
     {
       id: 1,
-      title: "Experience",
+      title: "bakery backend API", 
       description: "Crafting an effortless journey with user-first.",
       imageUrl: "https://i.pinimg.com/736x/2b/74/7b/2b747b71b782a8833f2b3ad9b0e37cd1.jpg",
-      hoverColor: "group-hover:text-orange-500"
+      hoverColor: "group-hover:text-orange-500",
+      externalLink: "https://github.com/alissonkl20/API-food.git"
     },
     {
       id: 2,
-      title: "Interaction",
-      description: "Our platform is designed for simplicity and ease.",
+      title: "RPA",
+      description: "payroll closing automation.",
       imageUrl: "https://i.pinimg.com/564x/3c/c2/6c/3cc26c0140c2f0dc70d8aa48416c41dc.jpg",
-      hoverColor: "group-hover:text-indigo-400"
+      hoverColor: "group-hover:text-indigo-400",
+      externalLink: "https://github.com/alissonkl20/rpa_folha_salarial.git"
     },
     {
       id: 3,
@@ -38,7 +40,7 @@ function Card() {
     },
     {
       id: 4,
-      title: "Cardápio Web",
+      title: "web menu",
       description: "Our design philosophy centers around the user.",
       imageUrl: "https://cardapio-web-sage.vercel.app/",
       hoverColor: "group-hover:text-cyan-400",
