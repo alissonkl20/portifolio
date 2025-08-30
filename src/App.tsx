@@ -118,7 +118,7 @@ function App() {
       <div className="max-w-4xl mx-auto">
         <div className="flex items-center gap-2 mb-8">
           <Code2 className="text-blue-600" size={28} />
-          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : ''}`}>Projetos</h2>
+          <h2 className={`text-3xl font-bold ${darkMode ? 'text-white' : ''}`}>Projetos recentes</h2>
         </div>
         <div className="grid grid-cols-1 mx:grid-cols-2 gap-8">
           <Card 
