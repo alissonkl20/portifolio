@@ -37,7 +37,8 @@ function Card() {
       title: "Gerenciador de estoque",
       description: "Aplicativo para gerenciar estoque de produtos.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Ll22OhMLAlVDb8UQWe/giphy.gif",
-      hoverColor: "group-hover:text-cyan-400"
+      hoverColor: "group-hover:text-cyan-400",
+      externalLink: "https://flask-food-app.onrender.com/login?next=%2F"
     },
     {
       id: 4,
