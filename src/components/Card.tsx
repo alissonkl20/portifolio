@@ -18,11 +18,11 @@ function Card() {
   const cards: CardItem[] = [
     {
       id: 1,
-      title: "Bakery Backend API",
+      title: "Whaticket Saas",
       description: "Backend of a web menu in Spring Boot 21.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/6KirhLJyR7oMcwgJQk/giphy.gif",
       hoverColor: "group-hover:text-orange-500",
-      externalLink: "https://github.com/alissonkl20/API-food.git"
+      externalLink: "https://app.servidoratendezap.click/login"
     },
     {
       id: 2,
@@ -34,14 +34,14 @@ function Card() {
     },
     {
       id: 3,
-      title: "Design",
+      title: "Gerenciador de estoque",
       description: "Our design philosophy centers around the user.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Ll22OhMLAlVDb8UQWe/giphy.gif",
       hoverColor: "group-hover:text-cyan-400"
     },
     {
       id: 4,
-      title: "Web Menu Login",
+      title: "Cardápio Web",
       description: "Tela de login animada do web menu.",
       // Certifique-se de que este GIF está hospedado em um local acessível
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/cmCEsJZHYBPels360q/giphy.gif", // Substitua pela URL real do seu GIF
