@@ -1,107 +1,153 @@
-import { ExternalLink } from "lucide-react";
+import { GitFork, ExternalLink, Eye } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface CardItem {
   id: number;
   title: string;
   description: string;
-  mediaUrl: string; // pode ser imagem, GIF ou vídeo
+  mediaUrl: string;
   hoverColor: string;
   externalLink?: string;
-}
-
-interface CardContentProps {
-  readonly card: CardItem;
+  technologies?: string[];
+  longDescription?: string;
+  status?: 'active' | 'completed' | 'development';
 }
 
 function Card() {
   const cards: CardItem[] = [
     {
       id: 1,
-      title: "Whaticket Saas",
-      description: "Implementei transcrição de audio fronte-end e back-end.",
+      title: "Whaticket SaaS",
+      description: "Sistema completo de atendimento via WhatsApp",
+      longDescription: "Solução SaaS para atendimento ao cliente com múltiplos canais, dashboard administrativo e relatórios em tempo real.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/6KirhLJyR7oMcwgJQk/giphy.gif",
       hoverColor: "group-hover:text-orange-500",
-      externalLink: "https://app.servidoratendezap.click/login"
+      externalLink: "https://app.servidoratendezap.click/login",
+      technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Socket.io"],
+      status: 'active'
     },
     {
       id: 2,
-      title: "RPA",
-      description: "Payroll closing automation.",
+      title: "Automação RPA",
+      description: "Automação de processos de folha salarial",
+      longDescription: "Sistema de automação robótica para fechamento de folha de pagamento com integração de sistemas legados.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZHlqcmlhb3cxZ2VmZ3JvbDg2NGx1bW9lczVza2pvZzV1cXNwcnhmdyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/UmWpVKOvNEv6CHVtl7/giphy.gif",
       hoverColor: "group-hover:text-indigo-400",
-      externalLink: "https://github.com/alissonkl20/rpa_folha_salarial.git"
+      externalLink: "https://github.com/alissonkl20/rpa_folha_salarial.git",
+      technologies: ["Python", "Selenium", "Pandas", "Automation"],
+      status: 'completed'
     },
     {
       id: 3,
-      title: "Gerenciador de estoque",
-      description: "Aplicativo para gerenciar estoque de produtos.",
+      title: "Gerenciador de Estoque",
+      description: "Sistema completo de gestão de inventário",
+      longDescription: "Plataforma web para controle de estoque com relatórios, alertas e integração com fornecedores.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Ll22OhMLAlVDb8UQWe/giphy.gif",
       hoverColor: "group-hover:text-cyan-400",
-      externalLink: "https://flask-food-app.onrender.com/login?next=%2F"
+      externalLink: "https://flask-food-app.onrender.com/login?next=%2F",
+      technologies: ["Flask", "Python", "HTML", "CSS", "SQLite"],
+      status: 'active'
     },
     {
       id: 4,
-      title: "Cardápio Web",
-      description: "Cardapio digital interativo para panificadora.",
-      // Certifique-se de que este GIF está hospedado em um local acessível
-      mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/cmCEsJZHYBPels360q/giphy.gif", // Substitua pela URL real do seu GIF
+      title: "Cardápio Digital",
+      description: "Plataforma interativa para padarias",
+      longDescription: "Cardápio digital com sistema de pedidos online, carrinho de compras e integração com delivery.",
+      mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/cmCEsJZHYBPels360q/giphy.gif",
       hoverColor: "group-hover:text-red-500",
-      externalLink: "https://cardapio-web-sage.vercel.app/"
+      externalLink: "https://cardapio-web-sage.vercel.app/",
+      technologies: ["Spring Boot", "React", "MySQL", "Tailwind"],
+      status: 'development'
+    },
+    {
+      id: 5,
+      title: "API RESTful",
+      description: "API escalável para e-commerce",
+      longDescription: "API RESTful com autenticação JWT, documentação Swagger e testes automatizados.",
+      mediaUrl: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWd2ODJsejFhMmo3NmdjbHR6NmdoM2txeWcxNnJmOTA4dHFtcm13ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9d8XB557e8phGLBVS/giphy.gif",
+      hoverColor: "group-hover:text-green-500",
+      externalLink: "https://github.com/alissonkl20/api-ecommerce",
+      technologies: ["Node.js", "Express", "MongoDB", "JWT"],
+      status: 'completed'
+    },
+    {
+      id: 6,
+      title: "Dashboard Analytics",
+      description: "Painel administrativo com métricas",
+      longDescription: "Dashboard interativo com gráficos, métricas em tempo real e exportação de relatórios.",
+      mediaUrl: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXJsOWFkYTJ0NXdrdXlnZ2RxZGR1MWYyOTg4cGd5a2JyMTM1dzRmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GghGKaZ8JeHJx0apQC/giphy.gif",
+      hoverColor: "group-hover:text-purple-500",
+      externalLink: "https://github.com/alissonkl20/dashboard-analytics",
+      technologies: ["React", "Chart.js", "TypeScript", "API"],
+      status: 'active'
     }
   ];
 
   return (
-    <section className="min-h-screen w-full bg-white dark:bg-neutral-900 transition-colors duration-300">
-      <div className="flex flex-col justify-center items-center min-h-screen py-16">
-        <ul className="grid grid-cols-1 md:grid-cols-4 gap-6 w-full m-auto px-6">
-          {cards.map((card) => (
-            <li key={card.id}>
-              {card.externalLink ? (
-                <a
-                  href={card.externalLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                  aria-label={`Visit ${card.title}`}
-                >
-                  <CardContent card={card} />
-                </a>
-              ) : (
-                <CardContent card={card} />
-              )}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </section>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {cards.map((card) => (
+        <CardContent key={card.id} card={card} />
+      ))}
+    </div>
   );
 }
 
-function CardContent({ card }: CardContentProps) {
+function CardContent({ card }: { card: CardItem }) {
   const [isLoaded, setIsLoaded] = useState(false);
+  const [showDescription, setShowDescription] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   
-  // Detecta o tipo de mídia
   const isVideo = card.mediaUrl.match(/\.(mp4|webm)$/i);
-  const isGif = card.mediaUrl.match(/\.(gif)$/i);
 
-  // Pré-carrega a mídia
   useEffect(() => {
     const media = new Image();
     media.src = card.mediaUrl;
     media.onload = () => setIsLoaded(true);
   }, [card.mediaUrl]);
 
-  return (
-    <div className="mx-auto shadow-xl min-h-[28rem] h-full relative border-8 border-black dark:border-neutral-800 transform duration-500 hover:-translate-y-6 group rounded-xl overflow-hidden">
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'active': return 'bg-green-500';
+      case 'development': return 'bg-yellow-500';
+      case 'completed': return 'bg-blue-500';
+      default: return 'bg-gray-500';
+    }
+  };
+
+  const getStatusText = (status: string) => {
+    switch (status) {
+      case 'active': return 'Ativo';
+      case 'development': return 'Desenvolvimento';
+      case 'completed': return 'Concluído';
+      default: return 'Indisponível';
+    }
+  };
+
+  const content = (
+    <div 
+      className="group relative h-96 overflow-hidden rounded-xl border-2 border-gray-200 dark:border-gray-800 cosmic-card hover-lift transform transition-all duration-500"
+      onMouseEnter={() => {
+        setShowDescription(true);
+        setIsHovered(true);
+      }}
+      onMouseLeave={() => {
+        setShowDescription(false);
+        setIsHovered(false);
+      }}
+    >
+      {/* Status Badge */}
+      <div className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-white text-xs font-bold ${getStatusColor(card.status || 'active')} backdrop-blur-sm`}>
+        {getStatusText(card.status || 'active')}
+      </div>
+
       {/* Indicador de carregamento */}
       {!isLoaded && (
-        <div className="absolute inset-0 flex items-center justify-center bg-gray-200 dark:bg-neutral-800">
-          <div className="animate-pulse text-gray-500">Carregando...</div>
+        <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-neon-purple"></div>
         </div>
       )}
       
-      {/* Vídeo, GIF ou imagem */}
+      {/* Mídia */}
       {isVideo ? (
         <video
           src={card.mediaUrl}
@@ -115,50 +161,83 @@ function CardContent({ card }: CardContentProps) {
         <img
           src={card.mediaUrl}
           alt={card.title}
-          className={`absolute top-0 left-0 w-full h-full object-cover ${isLoaded ? 'opacity-100' : 'opacity-0'} transition-opacity duration-300`}
+          className={`absolute top-0 left-0 w-full h-full object-cover transition-transform duration-700 ${
+            isLoaded ? 'opacity-100' : 'opacity-0'
+          } ${isHovered ? 'scale-110' : 'scale-100'}`}
           onLoad={() => setIsLoaded(true)}
-          // Para GIFs, adicionamos controles de reprodução
-          {...(isGif && {
-            onClick: (e) => {
-              // Pausa/play no clique para GIFs
-              const img = e.target as HTMLImageElement;
-              if (img.src.includes(".gif")) {
-                const currentSrc = img.src;
-                img.src = "";
-                setTimeout(() => {
-                  img.src = currentSrc;
-                }, 10);
-              }
-            },
-            style: { cursor: "pointer" }
-          })}
         />
       )}
 
-      {/* Overlay */}
-      <div className="bg-black/70 dark:bg-neutral-900/80 relative h-full flex flex-col justify-end group-hover:bg-opacity-60 transition-all duration-300 rounded-xl">
-        <div className="p-8">
-          <div className="flex justify-between items-center">
-            <h2
-              className={`text-white dark:text-neutral-100 mt-2 text-xl mb-5 transform translate-y-10 uppercase group-hover:translate-y-0 duration-300 font-bold ${card.hoverColor}`}
-            >
-              {String(card.id).padStart(2, "0")}⏤ {card.title}
-            </h2>
-            {card.externalLink && (
-              <ExternalLink className="text-white group-hover:text-cyan-400 transform translate-y-10 group-hover:translate-y-0 duration-300" />
-            )}
+      {/* Overlay Gradiente */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+      {/* Conteúdo */}
+      <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
+        <div className={`transform transition-all duration-500 ${
+          showDescription ? 'translate-y-0' : 'translate-y-8'
+        }`}>
+          
+          <div className="flex items-center justify-between mb-2">
+            <h3 className={`text-xl font-bold font-orbitron ${card.hoverColor} transition-colors`}>
+              {card.title}
+            </h3>
+            <span className="text-xs opacity-70">#{String(card.id).padStart(2, "0")}</span>
           </div>
-          <p className="opacity-0 text-white dark:text-neutral-200 text-lg group-hover:opacity-90 transform duration-500">
-            {card.description}
+
+          <p className="text-sm opacity-90 mb-3 line-clamp-2">
+            {showDescription ? card.longDescription : card.description}
           </p>
-          {/* Indicador para GIFs */}
-          {isGif && (
-            <div className="opacity-0 group-hover:opacity-100 transform duration-500 text-xs text-white/70 mt-2">
-              Clique no GIF para recarregar
+
+          {showDescription && card.technologies && (
+            <div className="flex flex-wrap gap-1 mb-3">
+              {card.technologies.map((tech, index) => (
+                <span 
+                  key={index}
+                  className="bg-neon-purple/80 text-white px-2 py-1 rounded text-xs backdrop-blur-sm"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           )}
+          
+          <div className="flex items-center justify-between pt-2 border-t border-white/20">
+            <div className="flex items-center gap-4 text-xs opacity-70">
+              {card.externalLink && (
+                <>
+                  <div className="flex items-center gap-1">
+                    <Eye size={12} />
+                    <span>Demo</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <GitFork size={12} />
+                    <span>Code</span>
+                  </div>
+                </>
+              )}
+            </div>
+            
+            {card.externalLink && (
+              <ExternalLink size={16} className="opacity-70 group-hover:opacity-100 transition-opacity" />
+            )}
+          </div>
         </div>
       </div>
+    </div>
+  );
+
+  return card.externalLink ? (
+    <a 
+      href={card.externalLink} 
+      target="_blank" 
+      rel="noopener noreferrer"
+      className="block focus:outline-none focus:ring-4 focus:ring-neon-purple/50 rounded-xl transition-transform duration-300 hover:scale-102"
+    >
+      {content}
+    </a>
+  ) : (
+    <div className="focus:outline-none focus:ring-4 focus:ring-neon-purple/50 rounded-xl">
+      {content}
     </div>
   );
 }
