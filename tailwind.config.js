@@ -35,12 +35,12 @@ export default {
         },
         'neon-glow': {
           '0%': {
-            'text-shadow': '0 0 5px #6C63FF, 0 0 10px #6C63FF, 0 0 15px #6C63FF',
-            'box-shadow': '0 0 5px #6C63FF, 0 0 10px #6C63FF',
+            'text-shadow': '0 0 5px #ff6600, 0 0 10px #ff6600, 0 0 15px #ff6600',
+            'box-shadow': '0 0 5px #ff6600, 0 0 10px #ff6600',
           },
           '100%': {
-            'text-shadow': '0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 30px #6C63FF',
-            'box-shadow': '0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 30px #6C63FF',
+            'text-shadow': '0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff6600',
+            'box-shadow': '0 0 10px #ff6600, 0 0 20px #ff6600, 0 0 30px #ff6600',
           },
         },
         slideInFromLeft: {
@@ -73,127 +73,23 @@ export default {
           '75%': { transform: 'translateX(5px)' },
         },
       },
-      backgroundSize: {
-        '200%': '200% 200%',
-        '300%': '300% 300%',
-      },
       colors: {
-        'neon-purple': '#6C63FF',
-        'neon-pink': '#FF6584',
-        'neon-blue': '#00D4FF',
-        'neon-green': '#00FF88',
-        'space-black': '#0F0F1C',
-        'space-blue': '#1A1A2E',
-        'space-purple': '#16213E',
-        'cosmic-purple': '#2D1B69',
-        'galaxy-blue': '#1C1C3C',
+        // Light theme colors
+        'light-orange': '#ff6600',
+        'light-blue': '#0066cc',
+        'light-bg': '#ffffff',
+        'light-card': '#f8fafc',
+        
+        // Dark theme colors
+        'dark-red': '#ff0000',
+        'dark-bg': '#000000',
+        'dark-card': '#1a1a1a',
       },
       fontFamily: {
         'orbitron': ['Orbitron', 'sans-serif'],
         'space-mono': ['Space Mono', 'monospace'],
       },
-      spacing: {
-        '128': '32rem',
-        '144': '36rem',
-      },
-      borderRadius: {
-        '4xl': '2rem',
-        '5xl': '3rem',
-      },
-      borderWidth: {
-        '3': '3px',
-        '6': '6px',
-      },
-      boxShadow: {
-        'neon': '0 0 10px #6C63FF, 0 0 20px #6C63FF',
-        'neon-lg': '0 0 20px #6C63FF, 0 0 40px #6C63FF, 0 0 60px #6C63FF',
-        'neon-purple': '0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 40px #6C63FF',
-        'neon-pink': '0 0 10px #FF6584, 0 0 20px #FF6584, 0 0 40px #FF6584',
-        'neon-blue': '0 0 10px #00D4FF, 0 0 20px #00D4FF, 0 0 40px #00D4FF',
-        'glow': '0 0 30px rgba(108, 99, 255, 0.5)',
-        'space': '0 8px 32px rgba(0, 0, 0, 0.3)',
-      },
-      textShadow: {
-        'neon': '0 0 5px #6C63FF, 0 0 10px #6C63FF',
-        'neon-lg': '0 0 10px #6C63FF, 0 0 20px #6C63FF, 0 0 30px #6C63FF',
-      },
-      gradientColorStops: {
-        'space-start': '#0F0F1C',
-        'space-end': '#2D1B69',
-        'cosmic-start': '#1C1C3C',
-        'cosmic-end': '#6C63FF',
-      },
-      transitionDuration: {
-        '2000': '2000ms',
-        '3000': '3000ms',
-      },
-      transitionDelay: {
-        '200': '200ms',
-        '400': '400ms',
-        '600': '600ms',
-      },
-      scale: {
-        '102': '1.02',
-        '105': '1.05',
-      },
-      rotate: {
-        '15': '15deg',
-        '30': '30deg',
-        '60': '60deg',
-      },
-      skew: {
-        '15': '15deg',
-        '30': '30deg',
-      },
-      backdropBlur: {
-        'xs': '2px',
-      },
     },
   },
-  plugins: [
-    function ({ addUtilities }) {
-      const newUtilities = {
-        '.text-shadow': {
-          textShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
-        },
-        '.text-shadow-md': {
-          textShadow: '0 4px 8px rgba(0, 0, 0, 0.12), 0 2px 4px rgba(0, 0, 0, 0.08)',
-        },
-        '.text-shadow-lg': {
-          textShadow: '0 15px 30px rgba(0, 0, 0, 0.11), 0 5px 15px rgba(0, 0, 0, 0.08)',
-        },
-        '.text-shadow-xl': {
-          textShadow: '0 20px 40px rgba(0, 0, 0, 0.12), 0 10px 20px rgba(0, 0, 0, 0.06)',
-        },
-        '.text-shadow-2xl': {
-          textShadow: '0 25px 50px rgba(0, 0, 0, 0.25)',
-        },
-        '.text-shadow-none': {
-          textShadow: 'none',
-        },
-        '.neon-text': {
-          textShadow: '0 0 5px #6C63FF, 0 0 10px #6C63FF, 0 0 15px #6C63FF, 0 0 20px #6C63FF',
-        },
-        '.neon-text-pink': {
-          textShadow: '0 0 5px #FF6584, 0 0 10px #FF6584, 0 0 15px #FF6584, 0 0 20px #FF6584',
-        },
-        '.neon-text-blue': {
-          textShadow: '0 0 5px #00D4FF, 0 0 10px #00D4FF, 0 0 15px #00D4FF, 0 0 20px #00D4FF',
-        },
-        '.glow-effect': {
-          boxShadow: '0 0 20px #6C63FF, 0 0 40px #6C63FF, 0 0 60px #6C63FF',
-        },
-        '.space-gradient': {
-          background: 'linear-gradient(135deg, #0F0F1C 0%, #2D1B69 50%, #1C1C3C 100%)',
-        },
-        '.cosmic-gradient': {
-          background: 'linear-gradient(135deg, #1C1C3C 0%, #6C63FF 50%, #00D4FF 100%)',
-        },
-        '.astronaut-gradient': {
-          background: 'linear-gradient(135deg, #6C63FF 0%, #FF6584 50%, #00D4FF 100%)',
-        },
-      };
-      addUtilities(newUtilities, ['responsive', 'hover']);
-    },
-  ],
-};
+  plugins: [],
+}

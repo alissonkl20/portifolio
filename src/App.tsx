@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Code2, User, Moon, Sun, Github, Rocket, Users as  Mail, Linkedin, Phone, Zap, Cloud, Database, Cpu } from 'lucide-react';
+import { Code2, User, Moon, Sun, Github, Rocket, Mail, Linkedin, Phone, Zap, Cloud, Database, Cpu } from 'lucide-react';
 import Card from './components/Card';
 import GitHubStats from './components/GitHubStats';
 
@@ -63,7 +63,7 @@ function App() {
       {/* Botão Dark Mode */}
       <button
         onClick={toggleDarkMode}
-        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 transition-all duration-300 hover:scale-110 shadow-lg"
+        className="fixed top-6 right-6 z-50 p-3 rounded-full bg-gradient-to-r from-light-orange to-light-blue dark:from-dark-red dark:to-dark-red text-white hover:scale-110 transition-all duration-300 shadow-lg"
         aria-label="Alternar tema"
       >
         {darkMode ? <Sun className="text-yellow-300" size={24} /> : <Moon className="text-white" size={24} />}
@@ -77,15 +77,15 @@ function App() {
             href={`#${section}`}
             className={`block w-3 h-3 rounded-full transition-all duration-300 hover:scale-150 ${
               activeSection === section 
-                ? 'bg-purple-600 shadow-lg shadow-purple-500/50 scale-150' 
-                : 'bg-gray-400 hover:bg-blue-500'
+                ? 'bg-light-orange dark:bg-dark-red shadow-lg shadow-light-orange/50 dark:shadow-dark-red/50 scale-150' 
+                : 'bg-gray-400 hover:bg-light-blue dark:hover:bg-dark-red'
             }`}
             title={section.charAt(0).toUpperCase() + section.slice(1)}
           />
         ))}
       </nav>
 
-      {/* Header Hero */}
+        {/* Header Hero */}
       <header 
         id="home" 
         ref={setSectionRef('home')}
@@ -113,8 +113,8 @@ function App() {
             loop
             muted
             playsInline
-            src='/assets/skye.mp4'
-            className="w-full h-full object-cover opacity-40"
+            src='/assets/res.mp4'
+            className="w-full h-full object-cover opacity-80"
             preload="auto"
           />
         </div>
@@ -155,8 +155,8 @@ function App() {
 
         {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 border-2 border-purple-500 rounded-full flex justify-center shadow-lg">
-            <div className="w-1 h-3 bg-purple-500 rounded-full mt-2 animate-pulse"></div>
+          <div className="w-6 h-10 border-2 border-light-orange dark:border-dark-red rounded-full flex justify-center shadow-lg">
+            <div className="w-1 h-3 bg-light-orange dark:bg-dark-red rounded-full mt-2 animate-pulse"></div>
           </div>
         </div>
       </header>
@@ -171,18 +171,18 @@ function App() {
           </p>
           
           <div className="grid md:grid-cols-3 gap-8 mt-12">
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
-              <Zap className="mx-auto mb-4 text-blue-500" size={40} />
+            <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
+              <Zap className="mx-auto mb-4 text-light-orange dark:text-dark-red" size={40} />
               <h3 className="text-xl font-bold mb-2">Rápido</h3>
               <p className={textSecondaryClasses}>Desenvolvimento ágil e eficiente</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
-              <Cloud className="mx-auto mb-4 text-purple-500" size={40} />
+            <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
+              <Cloud className="mx-auto mb-4 text-light-blue dark:text-dark-red" size={40} />
               <h3 className="text-xl font-bold mb-2">Moderno</h3>
               <p className={textSecondaryClasses}>Tecnologias atualizadas</p>
             </div>
-            <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
-              <Database className="mx-auto mb-4 text-pink-500" size={40} />
+            <div className="bg-white dark:bg-dark-card p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow text-center hover:scale-105 transition-transform">
+              <Database className="mx-auto mb-4 text-light-orange dark:text-dark-red" size={40} />
               <h3 className="text-xl font-bold mb-2">Robusto</h3>
               <p className={textSecondaryClasses}>Soluções escaláveis</p>
             </div>
@@ -197,13 +197,13 @@ function App() {
             {technologies.map((tech, index) => (
               <div
                 key={tech.name}
-                className="bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center hover:scale-105 group"
+                className="bg-white dark:bg-dark-card p-4 rounded-xl shadow-lg hover:shadow-xl transition-all text-center hover:scale-105 group"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="text-3xl mb-2 group-hover:scale-110 transition-transform">
                   {tech.icon}
                 </div>
-                <div className="font-bold group-hover:text-blue-500 transition-colors">
+                <div className="font-bold group-hover:text-light-orange dark:group-hover:text-dark-red transition-colors">
                   {tech.name}
                 </div>
               </div>
@@ -234,7 +234,7 @@ function App() {
               <Mail className="group-hover:scale-110 transition-transform" size={20} />
               E-mail
             </a>
-            <a href="https://www.linkedin.com/in/alisson-almeida-de-oliveira-3406bb347/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2">
+            <a href="https://www.linkedin.com/in/alisson-almeida-de-oliveira-3406bb347/" target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-light-orange to-light-blue dark:from-dark-red dark:to-dark-red hover:scale-105 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 flex items-center justify-center gap-2">
               <Linkedin className="group-hover:scale-110 transition-transform" size={20} />
               LinkedIn
             </a>
@@ -247,24 +247,24 @@ function App() {
       </Section>
 
       {/* Footer */}
-      <footer className="py-12 px-4 text-center relative overflow-hidden bg-gradient-to-br from-gray-900 to-purple-900 text-white">
+      <footer className="py-12 px-4 text-center relative overflow-hidden bg-gradient-to-br from-light-blue to-light-orange dark:from-dark-bg dark:to-dark-bg text-white">
         
         <div className="relative z-10">
-          <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+          <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-white to-light-orange dark:from-white dark:to-dark-red bg-clip-text text-transparent">
             ✨ "Explorando o universo do código, um commit por vez!" ✨
           </h3>
-          
-          <p className="text-gray-300 mb-6 text-lg">
+
+          <p className="text-light-bg mb-6 text-lg">
             ⭐️ <strong>Obrigado pela visita!</strong> ⭐️
           </p>
 
-          <div className="flex justify-center gap-6 flex-wrap text-gray-400 mb-4">
+          <div className="flex justify-center gap-6 flex-wrap text-light-bg mb-4">
             <span>© {new Date().getFullYear()} Alisson de A de Oliveira</span>
             <span>•</span>
             <span>Todos os direitos reservados</span>
           </div>
 
-          <div className="flex justify-center gap-4 text-gray-500">
+          <div className="flex justify-center gap-4 text-gray-900 mb-4 bg-gradient-to-r from-white to-light-orange dark:from-white dark:to-dark-red bg-clip-text text-transparent">
             <span>🚀 Sempre buscando próximo desafio</span>
           </div>
         </div>
@@ -306,12 +306,12 @@ const Section = React.forwardRef<HTMLElement, {
       id={id} 
       ref={ref}
       className={`py-20 px-4 transition-all duration-1000 ${
-        darkMode ? 'bg-gradient-to-br from-gray-900 to-purple-900' : 'bg-gradient-to-br from-gray-50 to-blue-50'
+        darkMode ? 'bg-dark-bg' : 'bg-light-bg'
       } ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
     >
       <div className="max-w-7xl mx-auto">
         <div className="flex items-center justify-center gap-3 mb-12">
-          <Icon className={`${darkMode ? 'text-purple-400' : 'text-blue-600'} w-9 h-9`} />
+          <Icon className={`${darkMode ? 'text-dark-red' : 'text-light-orange'} w-9 h-9`} />
           <h2 className={`text-4xl font-bold ${
             darkMode ? 'text-white' : 'text-gray-900'
           }`}>

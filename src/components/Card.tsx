@@ -6,11 +6,10 @@ interface CardItem {
   title: string;
   description: string;
   mediaUrl: string;
-  hoverColor: string;
   externalLink?: string;
   technologies?: string[];
   longDescription?: string;
-  status?: 'active' | 'completed' | 'development';
+  status?: 'active' | 'completed' | 'development' | 'disabled';
 }
 
 function Card() {
@@ -21,10 +20,9 @@ function Card() {
       description: "Sistema completo de atendimento via WhatsApp",
       longDescription: "Solução SaaS para atendimento ao cliente com múltiplos canais, dashboard administrativo e relatórios em tempo real.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/6KirhLJyR7oMcwgJQk/giphy.gif",
-      hoverColor: "group-hover:text-orange-500",
       externalLink: "https://app.servidoratendezap.click/login",
       technologies: ["React", "Node.js", "PostgreSQL", "TypeScript", "Socket.io"],
-      status: 'active'
+      status: 'disabled'
     },
     {
       id: 2,
@@ -32,7 +30,6 @@ function Card() {
       description: "Automação de processos de folha salarial",
       longDescription: "Sistema de automação robótica para fechamento de folha de pagamento com integração de sistemas legados.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPWVjZjA1ZTQ3ZHlqcmlhb3cxZ2VmZ3JvbDg2NGx1bW9lczVza2pvZzV1cXNwcnhmdyZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/UmWpVKOvNEv6CHVtl7/giphy.gif",
-      hoverColor: "group-hover:text-indigo-400",
       externalLink: "https://github.com/alissonkl20/rpa_folha_salarial.git",
       technologies: ["Python", "Selenium", "Pandas", "Automation"],
       status: 'completed'
@@ -43,10 +40,9 @@ function Card() {
       description: "Sistema completo de gestão de inventário",
       longDescription: "Plataforma web para controle de estoque com relatórios, alertas e integração com fornecedores.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/Ll22OhMLAlVDb8UQWe/giphy.gif",
-      hoverColor: "group-hover:text-cyan-400",
       externalLink: "https://flask-food-app.onrender.com/login?next=%2F",
       technologies: ["Flask", "Python", "HTML", "CSS", "SQLite"],
-      status: 'active'
+      status: 'disabled'
     },
     {
       id: 4,
@@ -54,7 +50,6 @@ function Card() {
       description: "Plataforma interativa para padarias",
       longDescription: "Cardápio digital com sistema de pedidos online, carrinho de compras e integração com delivery.",
       mediaUrl: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOXp2N253MzI3b2g4d3Rxa3B5NGsydGV6anVpNnFoNjFnMW5mNmY5biZlcD12MV9zdGlja2Vyc19zZWFyY2gmY3Q9cw/cmCEsJZHYBPels360q/giphy.gif",
-      hoverColor: "group-hover:text-red-500",
       externalLink: "https://cardapio-web-sage.vercel.app/",
       technologies: ["Spring Boot", "React", "MySQL", "Tailwind"],
       status: 'development'
@@ -65,10 +60,9 @@ function Card() {
       description: "API escalável para e-commerce",
       longDescription: "API RESTful com autenticação JWT, documentação Swagger e testes automatizados.",
       mediaUrl: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcWd2ODJsejFhMmo3NmdjbHR6NmdoM2txeWcxNnJmOTA4dHFtcm13ayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/S9d8XB557e8phGLBVS/giphy.gif",
-      hoverColor: "group-hover:text-green-500",
       externalLink: "https://github.com/alissonkl20/api-ecommerce",
       technologies: ["Node.js", "Express", "MongoDB", "JWT"],
-      status: 'completed'
+      status: 'disabled'
     },
     {
       id: 6,
@@ -76,10 +70,9 @@ function Card() {
       description: "Painel administrativo com métricas",
       longDescription: "Dashboard interativo com gráficos, métricas em tempo real e exportação de relatórios.",
       mediaUrl: "https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXJsOWFkYTJ0NXdrdXlnZ2RxZGR1MWYyOTg4cGd5a2JyMTM1dzRmNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/GghGKaZ8JeHJx0apQC/giphy.gif",
-      hoverColor: "group-hover:text-purple-500",
       externalLink: "https://github.com/alissonkl20/dashboard-analytics",
       technologies: ["React", "Chart.js", "TypeScript", "API"],
-      status: 'active'
+      status: 'disabled'
     }
   ];
 
@@ -109,7 +102,7 @@ function CardContent({ card }: { card: CardItem }) {
     switch (status) {
       case 'active': return 'bg-green-500';
       case 'development': return 'bg-yellow-500';
-      case 'completed': return 'bg-blue-500';
+      case 'completed': return 'bg-light-blue dark:bg-dark-red';
       default: return 'bg-gray-500';
     }
   };
@@ -125,7 +118,7 @@ function CardContent({ card }: { card: CardItem }) {
 
   const content = (
     <div 
-      className="group relative h-96 overflow-hidden rounded-xl border-2 border-gray-200 dark:border-gray-800 cosmic-card hover-lift transform transition-all duration-500"
+      className="group relative h-96 overflow-hidden rounded-xl border-2 border-gray-200 dark:border-gray-800 bg-white dark:bg-dark-card hover:shadow-xl transform transition-all duration-500 card-hover"
       onMouseEnter={() => {
         setShowDescription(true);
         setIsHovered(true);
@@ -143,7 +136,7 @@ function CardContent({ card }: { card: CardItem }) {
       {/* Indicador de carregamento */}
       {!isLoaded && (
         <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gray-200 to-gray-300 dark:from-gray-800 dark:to-gray-900">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-neon-purple"></div>
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-light-orange dark:border-dark-red"></div>
         </div>
       )}
       
@@ -178,7 +171,7 @@ function CardContent({ card }: { card: CardItem }) {
         }`}>
           
           <div className="flex items-center justify-between mb-2">
-            <h3 className={`text-xl font-bold font-orbitron ${card.hoverColor} transition-colors`}>
+            <h3 className="text-xl font-bold text-light-orange dark:text-dark-red transition-colors">
               {card.title}
             </h3>
             <span className="text-xs opacity-70">#{String(card.id).padStart(2, "0")}</span>
@@ -193,7 +186,7 @@ function CardContent({ card }: { card: CardItem }) {
               {card.technologies.map((tech, index) => (
                 <span 
                   key={index}
-                  className="bg-neon-purple/80 text-white px-2 py-1 rounded text-xs backdrop-blur-sm"
+                  className="bg-light-blue/80 dark:bg-dark-red/80 text-white px-2 py-1 rounded text-xs backdrop-blur-sm"
                 >
                   {tech}
                 </span>
@@ -231,12 +224,12 @@ function CardContent({ card }: { card: CardItem }) {
       href={card.externalLink} 
       target="_blank" 
       rel="noopener noreferrer"
-      className="block focus:outline-none focus:ring-4 focus:ring-neon-purple/50 rounded-xl transition-transform duration-300 hover:scale-102"
+      className="block focus:outline-none focus:ring-4 focus:ring-light-orange/50 dark:focus:ring-dark-red/50 rounded-xl transition-transform duration-300 hover:scale-105"
     >
       {content}
     </a>
   ) : (
-    <div className="focus:outline-none focus:ring-4 focus:ring-neon-purple/50 rounded-xl">
+    <div className="focus:outline-none focus:ring-4 focus:ring-light-orange/50 dark:focus:ring-dark-red/50 rounded-xl">
       {content}
     </div>
   );
