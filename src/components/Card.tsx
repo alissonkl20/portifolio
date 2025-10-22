@@ -141,48 +141,48 @@ function CardContent({ card }: { card: CardItem }) {
       )}
       
       {/* Mídia */}
-      {isVideo ? (
-        <video
-          src={card.mediaUrl}
-          autoPlay
-          loop
-          muted
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          onLoadedData={() => setIsLoaded(true)}
-        />
-      ) : (
-        <img
-          src={card.mediaUrl}
-          alt={card.title}
-          className={`absolute top-0 left-0 w-full h-full object-cover transition-transform duration-700 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          } ${isHovered ? 'scale-110' : 'scale-100'}`}
-          onLoad={() => setIsLoaded(true)}
-        />
-      )}
+      <div className="absolute top-0 left-0 w-full h-full">
+        {isVideo ? (
+          <video
+            src={card.mediaUrl}
+            autoPlay
+            loop
+            muted
+            className="w-full h-full object-cover"
+            onLoadedData={() => setIsLoaded(true)}
+          />
+        ) : (
+          <img
+            src={card.mediaUrl}
+            alt={card.title}
+            className={`w-full h-full object-cover transition-transform duration-700 ${
+              isLoaded ? 'opacity-100' : 'opacity-50'
+            } ${isHovered ? 'scale-110' : 'scale-100'}`}
+            onLoad={() => setIsLoaded(true)}
+          />
+        )}
+        {/* Overlay Gradiente mais escuro para melhor contraste */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-100 transition-opacity duration-300" />
+      </div>
 
       {/* Overlay Gradiente */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
-      {/* Conteúdo */}
-      <div className="absolute inset-0 flex flex-col justify-end p-6 text-white">
-        <div className={`transform transition-all duration-500 ${
-          showDescription ? 'translate-y-0' : 'translate-y-8'
-        }`}>
-          
+      <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-white z-10 pointer-events-none">
+        <div className={`w-full max-w-md mx-auto text-center transform transition-all duration-500 ${
+          showDescription ? 'translate-y-0' : 'translate-y-4'
+        } bg-black/70 rounded-xl py-6 px-4 shadow-lg pointer-events-auto`}>
           <div className="flex items-center justify-between mb-2">
-            <h3 className="text-xl font-bold text-light-orange dark:text-dark-red transition-colors">
+            <h3 className="text-2xl font-bold text-light-orange dark:text-dark-red transition-colors">
               {card.title}
             </h3>
             <span className="text-xs opacity-70">#{String(card.id).padStart(2, "0")}</span>
           </div>
-
-          <p className="text-sm opacity-90 mb-3 line-clamp-2">
+          <p className="text-base opacity-95 mb-3 line-clamp-3">
             {showDescription ? card.longDescription : card.description}
           </p>
-
           {showDescription && card.technologies && (
-            <div className="flex flex-wrap gap-1 mb-3">
+            <div className="flex flex-wrap gap-1 mb-3 justify-center">
               {card.technologies.map((tech, index) => (
                 <span 
                   key={index}
@@ -193,7 +193,6 @@ function CardContent({ card }: { card: CardItem }) {
               ))}
             </div>
           )}
-          
           <div className="flex items-center justify-between pt-2 border-t border-white/20">
             <div className="flex items-center gap-4 text-xs opacity-70">
               {card.externalLink && (
@@ -209,7 +208,6 @@ function CardContent({ card }: { card: CardItem }) {
                 </>
               )}
             </div>
-            
             {card.externalLink && (
               <ExternalLink size={16} className="opacity-70 group-hover:opacity-100 transition-opacity" />
             )}
@@ -227,7 +225,7 @@ function CardContent({ card }: { card: CardItem }) {
       className="block focus:outline-none focus:ring-4 focus:ring-light-orange/50 dark:focus:ring-dark-red/50 rounded-xl transition-transform duration-300 hover:scale-105"
     >
       {content}
-    </a>
+    </a> 
   ) : (
     <div className="focus:outline-none focus:ring-4 focus:ring-light-orange/50 dark:focus:ring-dark-red/50 rounded-xl">
       {content}
