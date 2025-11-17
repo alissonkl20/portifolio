@@ -1,4 +1,3 @@
-import { GitFork, ExternalLink, Eye } from "lucide-react";
 import { useState, useEffect } from "react";
 
 interface CardItem {
@@ -193,25 +192,6 @@ function CardContent({ card }: { card: CardItem }) {
               ))}
             </div>
           )}
-          <div className="flex items-center justify-between pt-2 border-t border-white/20">
-            <div className="flex items-center gap-4 text-xs opacity-70">
-              {card.externalLink && (
-                <>
-                  <div className="flex items-center gap-1">
-                    <Eye size={12} />
-                    <span>Demo</span>
-                  </div>
-                  <div className="flex items-center gap-1">
-                    <GitFork size={12} />
-                    <span>Code</span>
-                  </div>
-                </>
-              )}
-            </div>
-            {card.externalLink && (
-              <ExternalLink size={16} className="opacity-70 group-hover:opacity-100 transition-opacity" />
-            )}
-          </div>
         </div>
       </div>
     </div>
