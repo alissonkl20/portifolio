@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import { User, Github, Rocket, Mail, Linkedin, Phone, Zap, Cloud, Database, Cpu } from 'lucide-react';
+import { User, Github, Mail, Linkedin, Phone, Zap, Cloud, Database, Cpu } from 'lucide-react';
 import GitHubStats from './components/GitHubStats';
 import Blog from './components/Blog';
 
@@ -43,10 +43,9 @@ function App() {
             <a href="#home" className="hover:underline">Home</a>
             <a href="#sobre" className="hover:underline">Sobre</a>
             <a href="#tecnologias" className="hover:underline">Tecnologias</a>
-            <a href="#projetos" className="hover:underline">Projetos</a>
             <a href="#github" className="hover:underline">GitHub</a>
             <a href="#contato" className="hover:underline">Contato</a>
-            <Link to="/blog" className="hover:underline font-bold text-light-orange">Blog</Link>
+            <Link to="/blog" className="hover:underline font-bold text-light-orange">Projetos</Link>
           </nav>
         </header>
 
@@ -95,7 +94,7 @@ function App() {
                     
 
                     <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                      Alisson de Almeida
+                      Alisson de Almeida de Oliveira
                     </h1>
                     
                     <div className="text-2xl md:text-4xl mb-8 bg-gradient-to-r from-blue-400 to-pink-500 bg-clip-text text-transparent font-bold">
@@ -105,13 +104,6 @@ function App() {
 
                     {/* CTA Buttons */}
                     <div className="flex justify-center gap-6 flex-wrap">
-                      <a
-                        href="#projetos"
-                        className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 shadow-lg flex items-center gap-2"
-                      >
-                        <Rocket className="group-hover:rotate-45 transition-transform" size={20} />
-                        Explorar Projetos
-                      </a>
                       <a
                         href="#github"
                         className="bg-gray-800 hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center gap-2"
