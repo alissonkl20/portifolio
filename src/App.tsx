@@ -255,7 +255,7 @@ Minha atuação abrange desde a arquitetura e implementação do back-end até a
                     <p className={`text-base sm:text-lg md:text-xl mb-6 sm:mb-8 ${textSecondaryClasses}`}>
                       Estou aberto a oportunidades remotas, híbridas e presenciais, projetos colaborativos em que eu possa continuar evoluindo tecnicamente e contribuir com soluções digitais de impacto.
                     </p>
-                    
+                    <strong className="text-lg sm:text-2xl mb-4 sm:mb-6 block">Vamos nos conectar!</strong>  
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
                       <a href="mailto:almeidadeoliveiraalisson04@gmail.com" className="bg-gray-800 hover:bg-gray-900 text-white px-4 sm:px-6 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2 text-sm sm:text-base">
                         <Mail className="group-hover:scale-110 transition-transform" size={18} />
