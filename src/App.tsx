@@ -147,7 +147,7 @@ function App() {
                       muted
                       playsInline
                       src='/assets/res.mp4'
-                      className="w-full h-full object-cover opacity-80"
+                      className="w-full h-full object-cover opacity-70"
                       preload="auto"
                     />
                   </div>
